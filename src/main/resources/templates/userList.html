@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>This is the title of the webpage!</title>
+  </head>
+  <body>
+    <table>
+    <tr>
+    <th>ID</th>
+    <th>Name</th>
+    </tr>
+    <thead>
+    <tr th:each="user : ${userList}">
+    <td th:text=" ${user.id}"></td>
+    </table>
+  </body>
+</html>
