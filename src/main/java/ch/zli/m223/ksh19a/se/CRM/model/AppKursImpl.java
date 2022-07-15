@@ -1,5 +1,6 @@
 package ch.zli.m223.ksh19a.se.CRM.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,8 @@ public class AppKursImpl implements AppKurs {
 	@Column(unique = true)
 	private String kursName;
 	
+	@OneToOne(mappedBy = "appKurs", cascade = CascadeType.ALL)
+	private LehrerImpl lehrer;
 	/*
 	 * @Column(unique = true)
 	 * private String klasseName;
@@ -45,14 +48,23 @@ public class AppKursImpl implements AppKurs {
 	@Override
 	public String getKursName() {
 		// TODO Auto-generated method stub
-		return null;
+		return kursName;
 	}
 
 	@Override
-	public AppKlasse getKlasse() {
+	public AppKlasseImpl getKlasse() {
 		return klasse;
 	}
 
+	@Override
+	public Lehrer getLehrer() {
+		// TODO Auto-generated method stub
+		return lehrer;
+	}
+	
+	
+
+	
 
 
 
